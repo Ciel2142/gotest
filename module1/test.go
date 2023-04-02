@@ -1,4 +1,4 @@
-package main
+package module1
 
 import "fmt"
 
@@ -24,14 +24,4 @@ func (t TestType2) HelloWorld() string {
 
 func HelloWorld(s HelloWorlder) string {
 	return fmt.Sprintf("%+v %s", s, s.HelloWorld())
-}
-
-func main() {
-	fmt.Println(HelloWorld(TestType2{
-		"test",
-	}))
-
-	fmt.Println(HelloWorld(&TestType1{
-		"test",
-	}))
 }
