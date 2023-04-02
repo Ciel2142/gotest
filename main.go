@@ -7,10 +7,10 @@ import (
 
 func main() {
 	x := module1.TestType1{
-		"test",
+		Name: "test",
 	}
 
 	fmt.Println(x.HelloWorld())
 	s := module1.HelloWorld(&x)
-	fmt.Println()
+	fmt.Println(s)
 }
