@@ -10,6 +10,10 @@ type TestType2 struct {
 	Name string
 }
 
+type HelloWorlder interface {
+	HelloWorld() string
+}
+
 func (t *TestType1) HelloWorld() string {
 	return "Hello World " + t.Name
 }
@@ -18,12 +22,16 @@ func (t TestType2) HelloWorld() string {
 	return "Hello World " + t.Name
 }
 
-func HelloWorld[T TestType1 | TestType2](s T) string {
-	return fmt.Sprintf("%+v", s)
+func HelloWorld(s HelloWorlder) string {
+	return fmt.Sprintf("%+v %s", s, s.HelloWorld())
 }
 
 func main() {
-	HelloWorld(TestType2{
+	fmt.Println(HelloWorld(TestType2{
 		"test",
-	})
+	}))
+
+	fmt.Println(HelloWorld(&TestType1{
+		"test",
+	}))
 }
