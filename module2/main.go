@@ -11,3 +11,9 @@ func main() {
 	}
 	log.Println(test.HelloWorld())
 }
+
+type SuperString string
+
+func (j SuperString) SuperStringBool() bool {
+	return true
+}
